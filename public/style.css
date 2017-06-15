@@ -1,0 +1,33 @@
+body {
+  padding: 5%;
+}
+
+/* responsive */
+@media (max-width: 766px) {
+  body { padding-top: 140px; }
+}
+
+.marker {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    border-style:solid;
+    border-width: thin;
+}
+
+.col-centered{
+    text-align: center;
+    float: none;
+    margin: 0 auto;
+}
+
+#wrapper .text{
+text-align: center;
+visibility: hidden;
+}
+
+#wrapper:hover .text{
+  text-align: center;
+  color: white;
+visibility:visible;
+}
