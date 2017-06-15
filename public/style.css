@@ -1,16 +1,14 @@
 body {
   padding: 5%;
+
 }
 
 /* responsive */
-@media (max-width: 766px) {
+@media (max-width: 766px, max-length:766px) {
   body { padding-top: 140px; }
 }
 
 .marker {
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
     border-style:solid;
     border-width: thin;
 }
@@ -21,13 +19,17 @@ body {
     margin: 0 auto;
 }
 
+.col-sm-offset{
+  padding:0;
+}
+
 #wrapper .text{
-text-align: center;
+
 visibility: hidden;
 }
 
 #wrapper:hover .text{
-  text-align: center;
+
   color: white;
 visibility:visible;
 }

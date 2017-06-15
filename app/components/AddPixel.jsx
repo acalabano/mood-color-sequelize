@@ -33,7 +33,6 @@ export default class AddPixel extends React.Component {
             <label htmlFor="day">"Date :" </label>
             <input className="form-control" type="text" id="day" />
           </div>
-            <SketchExample htmlFor="sketchColor"/>
             <button className="btn btn-default" type="submit">Add New Pixel</button>
           </form>
         </div>

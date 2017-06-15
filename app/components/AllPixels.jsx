@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+//, width: `${100/pixLength}vh`, height: `${100/pixLength}vh`
 
 export default class AllPixels extends React.Component {
   componentDidMount() {
@@ -7,24 +8,40 @@ export default class AllPixels extends React.Component {
   }
 
   render() {
+    let pixLength= this.props.pixels.pixels.length
+    let height=100/(pixLength)
+    console.log(pixLength)
+    let offset;
+    if(pixLength>6){
+      offset=2
+      height=100/Math.ceil(pixLength/6)
+    }
+    else{
+      offset=Math.floor(12/pixLength)
+    }
+
     return (
       <div>
-        <h1>All Interplanetary Pixels</h1>
-        <div>
+        <h1>Welcome to the Pixel Mood App</h1>
+        <Link to="/pixels/add" className="btn btn-default">Add Pixel +</Link>
+        <div className="container-fluid">
           <div className="row">
-            <div className="row col-lg-1 col-centered">
-              {
-                this.props.pixels.pixels.map(pixel => {
-                  return (
-                  <Link to={`/pixel/${pixel.id}`} key={pixel.id} style={{textDecoration: 'none'}}>
-                    <div className="marker" id="wrapper" style={{backgroundColor: pixel.color}}><p className="text">{pixel.day}</p></div>
-                  </Link>);
-                })
-              }
-            </div>
+
+            {
+              this.props.pixels.pixels.map(pixel => {
+
+                return (
+
+                    <Link to={`/pixel/${pixel.id}`} key={pixel.id} style={{textDecoration: 'none'}}>
+                      <div className={`col-xs-${offset}`} id="wrapper" style={{backgroundColor: pixel.color,  height: `${height}vh`}}><p className="text">{pixel.day}</p></div>
+                    </Link>
+
+                );
+              })
+            }
+
           </div>
         </div>
-        <Link to="/pixels/add" className="btn btn-default">Add Pixel +</Link>
       </div>
     );
   }

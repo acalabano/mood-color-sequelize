@@ -10,3 +10,8 @@ npm-debug.log
 
 # ignore hidden files
 .DS_Store
+
+README.md
+rubric/
+seed.js
+wireframes/
