@@ -10,11 +10,10 @@ export default class AllPixels extends React.Component {
   render() {
     let pixLength= this.props.pixels.pixels.length
     let height=100/(pixLength)
-    console.log(pixLength)
     let offset;
     if(pixLength>6){
       offset=2
-      height=100/Math.ceil(pixLength/6)
+      height=100/Math.ceil(pixLength/3)
     }
     else{
       offset=Math.floor(12/pixLength)

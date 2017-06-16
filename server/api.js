@@ -9,6 +9,7 @@ api.get('/hello', (req, res) => res.send({hello: 'world'}));
 
 
 api.get('/pixels', (req, res, next) => {
+  console.log('WE GOT TO THE ROUTE')
   db.Pixel.findAll()
   .then(pixels => res.send(pixels))
   .catch(next);
@@ -41,8 +42,8 @@ api.post('/pixels', (req, res, next) => {
 api.put('/pixel/:id', (req, res, next) => {
   let pixelId = req.params.id;
   db.Pixel.update({
-    name: req.body.name,
-    image: req.body.image
+    color: req.body.color,
+    day: req.body.day
   }, {
     where: {
       id: pixelId

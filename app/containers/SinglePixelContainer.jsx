@@ -17,6 +17,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(removeOnePixel(pixelId));
   },
   updatePixel: (pixelInfo) => {
+    console.log('DISPATCHING WORKS?', pixelInfo)
     dispatch(updateOnePixel(pixelInfo));
   }
 });

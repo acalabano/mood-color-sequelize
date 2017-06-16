@@ -28,17 +28,24 @@
     </script>
   </head>
   <body>
-    <div>
+
   		<script src="./js/libs/utils.js"></script>
-  		<script src="../clmtrackr.js"></script>
-  		<script src="../models/model_pca_20_svm.js"></script>
+  		<script src="./clmtrackr.js"></script>
+  		<script src="./models/model_pca_20_svm.js"></script>
   		<script src="./js/libs/Stats.js"></script>
   		<script src="./js/libs/d3.min.js"></script>
   		<script src="./js/emotion_classifier.js"></script>
-  		<script src="./js/emotionmodel.js"></script>
+  		<script src="./js/emotionModel.js"></script>
+      <script src="./js/jscolor.js"></script>
+
+
+
+
+    <div id="main"></div>
+    <br></br>
   		<div id="content">
-  			<h2>Emotion detection example</h2>
-  			<p>This a test of emotion detection based on parameter output from <em>clmtrackr</em>.</p>
+  			<h2>This is your mirror and camera.</h2>
+  			<p>Use it to check your mood today</p>
   			<div id="container">
   				<video id="videoel" width="400" height="300" preload="auto" loop>
   				</video>
@@ -57,13 +64,11 @@
   			<div id="controls">
   				<input class="btn" type="button" value="wait, loading video" disabled="disabled" onclick="startVideo()" id="startbutton"></input>
   			</div>
-  			<a href="https://github.com/auduno/clmtrackr"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png" alt="Fork me on GitHub"></a>
   			<script>
   				var vid = document.getElementById('videoel');
   				var overlay = document.getElementById('overlay');
   				var overlayCC = overlay.getContext('2d');
 
-  				/********** check and set up video/webcam **********/
 
   				function enablestart() {
   					var startbutton = document.getElementById('startbutton');
@@ -71,25 +76,13 @@
   					startbutton.disabled = null;
   				}
 
-  				/*var insertAltVideo = function(video) {
-  					if (supports_video()) {
-  						if (supports_ogg_theora_video()) {
-  							video.src = "./media/cap12_edit.ogv";
-  						} else if (supports_h264_baseline_video()) {
-  							video.src = "./media/cap12_edit.mp4";
-  						} else {
-  							return false;
-  						}
-  						//video.play();
-  						return true;
-  					} else return false;
-  				}*/
+
   				navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
   				window.URL = window.URL || window.webkitURL || window.msURL || window.mozURL;
 
-  				// check for camerasupport
+
   				if (navigator.getUserMedia) {
-  					// set up stream
+
 
   					var videoSelector = {video : true};
   					if (window.navigator.appVersion.match(/Chrome\/(.*?) /)) {
@@ -107,38 +100,28 @@
   						}
   						vid.play();
   					}, function() {
-  						//insertAltVideo(vid);
   						alert("There was some problem trying to fetch video from your webcam. If you have a webcam, please make sure to accept when the browser asks for access to your webcam.");
   					});
   				} else {
-  					//insertAltVideo(vid);
   					alert("This demo depends on getUserMedia, which your browser does not seem to support. :(");
   				}
 
   				vid.addEventListener('canplay', enablestart, false);
-
-  				/*********** setup of emotion detection *************/
-
-  				// set eigenvector 9 and 11 to not be regularized. This is to better detect motion of the eyebrows
-  				pModel.shapeModel.nonRegularizedVectors.push(9);
+          pModel.shapeModel.nonRegularizedVectors.push(9);
   				pModel.shapeModel.nonRegularizedVectors.push(11);
 
   				var ctrack = new clm.tracker({useWebGL : true});
   				ctrack.init(pModel);
 
   				function startVideo() {
-  					// start video
   					vid.play();
-  					// start tracking
   					ctrack.start(vid);
-  					// start loop to draw face
   					drawLoop();
   				}
 
   				function drawLoop() {
   					requestAnimFrame(drawLoop);
   					overlayCC.clearRect(0, 0, 400, 300);
-  					//psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
   					if (ctrack.getCurrentPosition()) {
   						ctrack.draw(overlay);
   					}
@@ -163,7 +146,6 @@
   				ec.init(emotionModel);
   				var emotionData = ec.getBlank();
 
-  				/************ d3 code for barchart *****************/
 
   				var margin = {top : 20, right : 20, bottom : 10, left : 40},
   					width = 400 - margin.left - margin.right,
@@ -229,33 +211,29 @@
   						.attr("y", function(datum) { return height - y(datum.value); })
   						.text(function(datum) { return datum.value.toFixed(1);});
 
-  					// enter
   					rects.enter().append("svg:rect");
   					texts.enter().append("svg:text");
 
-  					// exit
   					rects.exit().remove();
   					texts.exit().remove();
   				}
 
-  				/******** stats ********/
 
   				stats = new Stats();
   				stats.domElement.style.position = 'absolute';
   				stats.domElement.style.top = '0px';
   				document.getElementById('container').appendChild( stats.domElement );
 
-  				// update stats on every iteration
   				document.addEventListener('clmtrackrIteration', function(event) {
   					stats.update();
   				}, false);
 
   			</script>
   		</div>
-  	</div>
 
 
-    <div id="main"></div>
+
+
     <script async defer src="/bundle.js"></script>
 
   </body>
