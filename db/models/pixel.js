@@ -6,7 +6,8 @@ var db = require('../index.js');
 module.exports = db.define('pixel', {
   color: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
+    defaultValue: "blue"
   },
   day: Sequelize.STRING
 });
