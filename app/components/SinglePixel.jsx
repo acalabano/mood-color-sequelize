@@ -22,6 +22,7 @@ export default class SinglePixel extends React.Component {
       color: event.target.color.value,
       day: event.target.day.value
     };
+    console.log("PIXEL INFO UPDATED", updatedPixelInfo)
     this.props.updatePixel(updatedPixelInfo);
   }
 
@@ -29,7 +30,7 @@ export default class SinglePixel extends React.Component {
     return (
       <div>
         {console.log('PROPS IN SINGLE PIXEL', this.props)}
-        <h1>{this.props.pixels.pixelColor} Pixel</h1>
+        <h1>{this.props.pixels.pixelDay} Pixel</h1>
         <h3>Answers:</h3>
         <table className="table">
         <thead>
@@ -47,13 +48,13 @@ export default class SinglePixel extends React.Component {
         <h3>Update Pixel Information:</h3>
         <div className="row col-lg-4">
           <form action={`/api/pixel/${this.props.pixels.id}`} method="put" onSubmit={this.onUpdatePixelSubmit}>
-            <label htmlFor="color" className="mr-sm-2">Pixel Name:</label>
+            <label htmlFor="color" className="mr-sm-2">Pixel Color:</label>
             <div className="form-group">
-              <input className="form-control mb-2 mr-sm-2 mb-sm-0" type="text" id="color" />
+              <input className="form-control mb-2 mr-sm-2 mb-sm-0" type="color" id="color" />
             </div>
-            <label htmlFor="day" className="mr-sm-2">"Date: "</label>
+            <label htmlFor="day" className="mr-sm-2">Day: </label>
             <div className="form-group">
-              <input className="form-control" type="text" id="day" />
+              <input className="form-control" type="date" id="day" />
             </div>
             <button className="btn btn-default" type="submit">Update</button>
           </form>

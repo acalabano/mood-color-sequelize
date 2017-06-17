@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { browserHistory } from 'react-router';
-import SketchExample from './SketchExample';
 
 export default class AddPixel extends React.Component {
 
@@ -27,15 +26,16 @@ export default class AddPixel extends React.Component {
           <form action={`/api/pixels`} method="post" onSubmit={this.onPixelSubmit}>
           <div className="form-group">
             <label htmlFor="color">Pixel Color:</label>
-            <input className="form-control" type="text" id="color" />
+            <input className="form-control" type="color" id="color" />
           </div>
           <div className="form-group">
             <label htmlFor="day">"Date :" </label>
-            <input className="form-control" type="text" id="day" />
+            <input className="form-control" type="date" id="day" />
           </div>
             <button className="btn btn-default" type="submit">Add New Pixel</button>
           </form>
         </div>
+        <br></br>
 
       </div>
     );
