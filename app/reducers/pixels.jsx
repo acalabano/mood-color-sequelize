@@ -4,7 +4,8 @@ let initialState = {
   pixels: [],
   pixelId: '',
   pixelColor: "#rrggbb",
-  pixelDay:''
+  pixelDay:'',
+  pixelContent:''
 };
 
 /* --- actions --- */
@@ -25,7 +26,8 @@ export const getPixelData = (data) => ({
   type: GET_PIXEL_DATA,
   pixelId: data[0].id,
   pixelColor: data[0].color,
-  pixelDay: data[0].day
+  pixelDay: data[0].day,
+  pixelContent: data[0].content
 });
 
 export const removePixel = (id) => ({
@@ -106,6 +108,7 @@ export default function reducer(state = initialState, action){
     case GET_PIXEL_DATA:
     newState.pixelColor = action.pixelColor;
     newState.pixelDay = action.pixelDay;
+    newState.pixelContent = action.pixelContent;
     newState.pixelId = action.pixelId;
     break;
 
@@ -119,7 +122,8 @@ export default function reducer(state = initialState, action){
 
     case UPDATE_PIXEL:
     newState.pixelColor = action.pixelInfo.color;
-    newState.pixelDay = action.pixelInfo.day
+    newState.pixelDay = action.pixelInfo.day;
+    newState.pixelContent = action.pixelInfo.content;
     break;
 
     default:

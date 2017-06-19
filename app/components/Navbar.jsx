@@ -9,6 +9,7 @@ export default function Navbar() {
       <ul className="nav navbar-nav">
         <li><Link to="/">HOME</Link></li>
         <li><Link to="/pixels">PIXELS</Link></li>
+        <li><a href="/mirror.html">MIRROR</a></li>
       </ul>
       </div>
     </nav>

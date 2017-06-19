@@ -1743,14 +1743,14 @@ var jsc = {
 		// For BUTTON elements it's important to stop them from sending the form when clicked
 		// (e.g. in Safari)
 		if (jsc.isElementType(this.targetElement, 'button')) {
-			if (this.targetElement.onclick) {
-				var origCallback = this.targetElement.onclick;
-				this.targetElement.onclick = function (evt) {
+			if (this.targetElement.onClick) {
+				var origCallback = this.targetElement.onClick;
+				this.targetElement.onClick = function (evt) {
 					origCallback.call(this, evt);
 					return false;
 				};
 			} else {
-				this.targetElement.onclick = function () { return false; };
+				this.targetElement.onClick = function () { return false; };
 			}
 		}
 

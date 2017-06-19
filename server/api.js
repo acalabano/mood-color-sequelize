@@ -41,9 +41,11 @@ api.post('/pixels', (req, res, next) => {
 
 api.put('/pixel/:id', (req, res, next) => {
   let pixelId = req.params.id;
+  console.log("We are getting to the api for /pixels")
   db.Pixel.update({
     color: req.body.color,
-    day: req.body.day
+    day: req.body.day,
+    content: req.body.content
   }, {
     where: {
       id: pixelId

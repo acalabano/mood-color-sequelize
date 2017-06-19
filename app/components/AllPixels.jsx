@@ -5,6 +5,8 @@ import { Link } from 'react-router';
 export default class AllPixels extends React.Component {
   componentDidMount() {
     this.props.loadPixels();
+
+
   }
 
   render() {
@@ -20,7 +22,8 @@ export default class AllPixels extends React.Component {
     }
 
     return (
-      <div>
+
+      <div >
         <h1>Welcome to the Pixel Mood App</h1>
         <Link to="/pixels/add" className="btn btn-default">Add Pixel +</Link>
         <div className="container-fluid">

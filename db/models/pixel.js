@@ -9,5 +9,10 @@ module.exports = db.define('pixel', {
     allowNull: false,
     defaultValue: "blue"
   },
-  day: Sequelize.STRING
+  day: Sequelize.STRING,
+  content: {
+    type: Sequelize.TEXT,
+    allowNull: true,
+    defaultValue:"No text"
+  }
 });
