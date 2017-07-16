@@ -33,6 +33,7 @@ export default class AddPixel extends React.Component {
             <label htmlFor="color">Pixel Color:</label>
             <input className="form-control" type="color" id="color" />
           </div>
+          <a href="/mirror.html"> Click here for the mirror page to check your mood!</a>
           <div className="form-group">
             <label htmlFor="day">"Date :" </label>
             <input className="form-control" type="date" id="day" />
@@ -47,7 +48,6 @@ export default class AddPixel extends React.Component {
           </form>
 
         </div>
-        <a href="/mirror.html"> Click here for the mirror page</a>
         <br></br>
 
 

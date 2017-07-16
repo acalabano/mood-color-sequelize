@@ -30,7 +30,7 @@ export default class SinglePixel extends React.Component {
   }
 
   render() {
-    
+
     return (
 
       <div>
@@ -48,7 +48,9 @@ export default class SinglePixel extends React.Component {
             <div className="form-group">
               <input className="form-control mb-2 mr-sm-2 mb-sm-0" type="color" id="color" />
             </div>
-            <label htmlFor="day" className="mr-sm-2">Day: </label>
+            <a href="/mirror.html"> Click here for the mirror page to check your mood!</a>
+            <br></br>
+            <label htmlFor="day" className="mr-sm-2"> Day: </label>
             <div className="form-group">
               <input className="form-control" type="date" id="day" />
             </div>
