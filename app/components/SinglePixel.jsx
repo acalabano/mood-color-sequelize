@@ -34,7 +34,7 @@ export default class SinglePixel extends React.Component {
     return (
 
       <div>
-        {console.log('PROPS IN SINGLE PIXEL', this.props)}
+        {console.log('PROPS IN SINGLE PIXEL YESSSS????', this.props)}
 
         <h1>{this.props.pixels.pixelDay} Pixel</h1>
         <div id="wrapper" style={{backgroundColor: this.props.pixels.pixelColor,  width: `${10}vh`, height: `${10}vh`}}><p className="text">{this.props.pixels.pixelColor}</p></div>
