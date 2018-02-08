@@ -14,16 +14,18 @@ export default class AllPixels extends React.Component {
     let height=100/(pixLength)
     let width;
     let offset;
-    if(pixLength>20){
+    
+    // Nitpick on spacing here:
+    if (pixLength > 20){
       offset=2
       height=100/Math.ceil(pixLength/5)
       width=100/(pixLength)
       width=100/Math.ceil(pixLength/5)
     }
-    else if (pixLength>6) {
-      offset=2
-      width=100/Math.ceil(pixLength/3)
-      height=100/Math.ceil(pixLength/3)
+    else if (pixLength > 6) {
+      offset = 2
+      width = 100/Math.ceil(pixLength/3)
+      height = 100/Math.ceil(pixLength/3)
     }
     else{
       offset=Math.floor(12/pixLength)

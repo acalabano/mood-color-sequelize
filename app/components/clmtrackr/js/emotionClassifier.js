@@ -1,3 +1,6 @@
+// How come you stop using ES6 for some of these files?
+// Is it just older?  or some of the other files, did you import them in?
+
 "use strict";
 var emotionClassifier = function() {
 
@@ -31,7 +34,9 @@ var emotionClassifier = function() {
 
 	this.predict = function(parameters) {
 		var prediction = [];
-		for (var j = 0;j < emotions.length;j++) {
+
+		// Nitpick on spacing here:
+		for (var j = 0; j < emotions.length; j++) {
 			var e = emotions[j];
 			var score = classifier[e].bias
 			for (var i = 0;i < coefficient_length;i++) {

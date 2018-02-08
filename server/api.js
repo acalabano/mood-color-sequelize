@@ -7,6 +7,10 @@ api.get('/hello', (req, res) => res.send({hello: 'world'}));
 
 /* --- GET REQUESTS --- */
 
+// I think these comments to separate HTTP verb requests is a nice touch.
+// Helpful comments are always appreciated.
+// Are you familiar with JSDOC?
+
 
 api.get('/pixels', (req, res, next) => {
   console.log('WE GOT TO THE ROUTE')
