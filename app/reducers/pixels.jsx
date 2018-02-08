@@ -8,6 +8,9 @@ let initialState = {
   pixelContent:''
 };
 
+// Normally, aren't actions broken out to their own folder structure,
+// and sometimes the Action Types are shared between reducers and actions?
+
 /* --- actions --- */
 const GET_PIXELS = 'GET_PIXELS';
 const GET_PIXEL_DATA = 'GET_PIXEL_DATA';

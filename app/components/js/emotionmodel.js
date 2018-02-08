@@ -1,3 +1,10 @@
+// Nitpick here:
+// JS shops/teams usually are pretty forgiving, but Python people, some C/C++
+// folks definitely (VIM people) benefit from character limits enforced
+// by linter or a ruler.  I think char limit of 120 for JS is upper limit.
+// After that things become harder to read for code or JSON objects.
+// It can be okay for large data models that are generated or won't be read much by humans.
+
 var emotionModel = {
 	"angry" : {
     "bias" : -2.3768163629,
